@@ -59,3 +59,7 @@ TEST_F(NginxStringConfigTest, UnbalancedNestedConfig) {
 TEST_F(NginxStringConfigTest, DoublyNestedConfig) {
   EXPECT_TRUE(ParseString("server { port { listen 80; } }"));
 }
+
+TEST_F(NginxStringConfigTest, MultipleDoublyNestedConfig) {
+  EXPECT_TRUE(ParseString("server { port { listen 80; } foo { bar; } }"));
+}
